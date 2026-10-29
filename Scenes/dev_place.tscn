@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://brargpau8sfwc"]
+
+[ext_resource type="Texture2D" uid="uid://3lobkke4hkf1" path="res://Assets/wall.png" id="1_kluoc"]
+[ext_resource type="PackedScene" uid="uid://byurerjjui4bc" path="res://Scenes/player.tscn" id="2_1l4aw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1h57"]
+size = Vector2(13, 378)
+
+[node name="DevPlace" type="Node2D" unique_id=1146474876]
+
+[node name="Place" type="Node2D" parent="." unique_id=1308908455]
+
+[node name="SpritePlace" type="Sprite2D" parent="Place" unique_id=1728994001]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_kluoc")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Place/SpritePlace" unique_id=235522800]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Place/SpritePlace/StaticBody2D" unique_id=753550178]
+position = Vector2(119.99999, 615.55554)
+scale = Vector2(-3.4786165, 2.6892676)
+shape = SubResource("RectangleShape2D_o1h57")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Place/SpritePlace/StaticBody2D" unique_id=1391700396]
+position = Vector2(1171.1112, 613.3333)
+scale = Vector2(-3.4786165, 2.6892676)
+shape = SubResource("RectangleShape2D_o1h57")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Place/SpritePlace/StaticBody2D" unique_id=671894159]
+position = Vector2(646.66675, 1093.3334)
+rotation = 1.5707964
+scale = Vector2(-3.4786165, 2.6892676)
+shape = SubResource("RectangleShape2D_o1h57")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Place/SpritePlace/StaticBody2D" unique_id=1607471777]
+position = Vector2(319.99997, 144.44444)
+rotation = 1.5707964
+scale = Vector2(5.5638785, -1.0002047)
+shape = SubResource("RectangleShape2D_o1h57")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Place/SpritePlace/StaticBody2D" unique_id=132275483]
+position = Vector2(268.8889, 186.66666)
+rotation = 1.5707964
+scale = Vector2(5.5638785, -1.0002047)
+shape = SubResource("RectangleShape2D_o1h57")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Place/SpritePlace/StaticBody2D" unique_id=969389084]
+position = Vector2(640, 171.1111)
+rotation = 1.5707964
+scale = Vector2(5.5638785, -1.0002047)
+shape = SubResource("RectangleShape2D_o1h57")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Place/SpritePlace/StaticBody2D" unique_id=1933642100]
+position = Vector2(959.9999, 140)
+rotation = 1.5707964
+scale = Vector2(5.5638785, -1.0002047)
+shape = SubResource("RectangleShape2D_o1h57")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Place/SpritePlace/StaticBody2D" unique_id=244772974]
+position = Vector2(1006.6667, 184.44443)
+rotation = 1.5707964
+scale = Vector2(5.5638785, -1.0002047)
+shape = SubResource("RectangleShape2D_o1h57")
+
+[node name="Theme" type="AudioStreamPlayer" parent="Place" unique_id=202094333]
+autoplay = true
+
+[node name="Characters" type="Node2D" parent="." unique_id=889208007]
+
+[node name="Player" parent="Characters" unique_id=921638537 instance=ExtResource("2_1l4aw")]
+position = Vector2(291, 289)

@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://byurerjjui4bc"]
+
+[ext_resource type="Script" uid="uid://c48sxcgpkp1wo" path="res://Scripts/MovementController.gd" id="1_gymyn"]
+[ext_resource type="Texture2D" uid="uid://p0aqts13vkyq" path="res://Assets/Sprites/Frisk/Idles/DownIdle.png" id="1_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://k7np54y82pq8" path="res://Assets/Sprites/Frisk/Idles/LeftIdle.png" id="2_gymyn"]
+[ext_resource type="Texture2D" uid="uid://b0vnf5g0jygoy" path="res://Assets/Sprites/Frisk/Idles/RightIdle.png" id="3_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://dqtp0fiqjib7p" path="res://Assets/Sprites/Frisk/Idles/UpIdle.png" id="4_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://dvfbf7n8f03hj" path="res://Assets/Sprites/Frisk/Walks/Down/down2.png" id="5_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://bc22porwqpe8w" path="res://Assets/Sprites/Frisk/Walks/Down/down1.png" id="6_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://27ccco32s7me" path="res://Assets/Sprites/Frisk/Walks/Up/up1.png" id="7_fd4e3"]
+[ext_resource type="Texture2D" uid="uid://4ltvkbnso3ux" path="res://Assets/Sprites/Frisk/Walks/Up/up2.png" id="8_qqcod"]
+[ext_resource type="Texture2D" uid="uid://6km1ho78wwr" path="res://Assets/Sprites/Frisk/Walks/Left/left1.png" id="9_igrcy"]
+[ext_resource type="Texture2D" uid="uid://bqjdsm5wjmrh4" path="res://Assets/Sprites/Frisk/Walks/Right/right1.png" id="10_fs7ks"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0bhlq"]
+radius = 5.0
+height = 24.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jmvc1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tx1dd")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gymyn")
+}],
+"loop": 1,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pu2lt")
+}],
+"loop": 1,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ukyrk")
+}],
+"loop": 1,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": null
+}, {
+"duration": 0.5,
+"texture": null
+}, {
+"duration": 0.5,
+"texture": null
+}, {
+"duration": 0.5,
+"texture": null
+}],
+"loop": 1,
+"name": &"walk_clutch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7dp3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_tx1dd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h4iuc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_tx1dd")
+}],
+"loop": 1,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.1,
+"texture": ExtResource("5_7dp3o")
+}, {
+"duration": 0.1,
+"texture": ExtResource("1_tx1dd")
+}, {
+"duration": 0.1,
+"texture": ExtResource("7_fd4e3")
+}, {
+"duration": 0.1,
+"texture": ExtResource("4_ukyrk")
+}, {
+"duration": 0.1,
+"texture": ExtResource("6_h4iuc")
+}, {
+"duration": 0.1,
+"texture": ExtResource("1_tx1dd")
+}, {
+"duration": 0.1,
+"texture": ExtResource("8_qqcod")
+}, {
+"duration": 0.1,
+"texture": ExtResource("4_ukyrk")
+}],
+"loop": 1,
+"name": &"walk_glitch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_igrcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gymyn")
+}],
+"loop": 1,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pu2lt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fs7ks")
+}],
+"loop": 1,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_fd4e3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ukyrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qqcod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ukyrk")
+}],
+"loop": 1,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=921638537 groups=["Player"]]
+script = ExtResource("1_gymyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1174349541]
+visible = false
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_0bhlq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=866303004]
+sprite_frames = SubResource("SpriteFrames_jmvc1")
+animation = &"idle_down"
+frame_progress = 0.073615424
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=974713547]
+visible = false
+collision_mask = 3
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1972811820]
+visible = false
+zoom = Vector2(2.1, 2.1)
